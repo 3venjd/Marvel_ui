@@ -22,6 +22,23 @@ namespace Marvel_ui.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+
+        #if DEBUG
+            var fontList = new System.Text.StringBuilder();
+            var familyNames = UIFont.FamilyNames;
+            foreach (var familyName in familyNames)
+            {
+                fontList.Append(String.Format("Family: {0}\n", familyName));
+                Console.WriteLine("Family: {0}\n", familyName);
+                var fontNames = UIFont.FontNamesForFamilyName(familyName);
+                foreach (var fontName in fontNames)
+                {
+                    Console.WriteLine("\tFont: {0}\n", fontName);
+                    fontList.Append(String.Format("\tFont: {0}\n", fontName));
+                }
+            };
+        #endif
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Marvel_ui.Views.HeroCard">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <BoxView 
+            Grid.Row="1"
+            BackgroundColor="{Binding HeroColor}"
+            HeightRequest="0"
+            CornerRadius="30,30,0,0"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+        </BoxView>
+        <Image 
+            x:Name="HeroImage"
+            Grid.Row="1"
+            TranslationY="-150"
+            VerticalOptions="Start" 
+            WidthRequest="400"
+            HeightRequest="300"
+            Source="{Binding Image}"/>
+        <StackLayout Grid.Row="1"
+                     Margin="40,120,40,30">
+            <Label 
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                LineHeight=".85"
+                WidthRequest="200"
+                Text="{Binding HeroName}" 
+                Style="{StaticResource Header}"  
+            />
+            <Label 
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Text="{Binding RealName}" 
+                Style="{StaticResource SubHeader}" 
+            />
+            <Label
+                Margin="0,20,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Text="Learn more ⟶" 
+                Style="{StaticResource LearnMore}" 
+            />
+        </StackLayout>
+    </Grid>
+</ContentView>
